@@ -1,5 +1,6 @@
 #include "opencv2/opencv.hpp"
 #include <opencv2/features2d.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
 #include<vector>
 using namespace cv;
 using namespace std;
@@ -17,6 +18,7 @@ int main(int, char**)
     {
         Mat frame;
         cap >> frame; // get a new frame from camera
+	cvtColor(frame, frame, COLOR_BGR2GRAY);
 	double t = (double)getTickCount();
 	vector<KeyPoint> kpts1, kpts2;
 	Mat desc1, desc2;
